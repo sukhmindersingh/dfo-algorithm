@@ -7,6 +7,7 @@ Email: Anahita.Hassanzadeh@gmail.com
 from scipy import linalg as LA
 import numpy as np
 from scipy.sparse import csr_matrix
+from functools import reduce
 
 def _secular_eqn(lambda_0, eigval, alpha, delta):
     """

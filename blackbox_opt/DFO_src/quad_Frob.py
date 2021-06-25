@@ -7,6 +7,7 @@ email: Anahita.Hassanzadeh@gmail.com
 """
 import numpy as np
 from scipy import linalg as LA
+from functools import reduce
 
 def _compute_coeffs(W, tol_svd, b, option):
     """Compute model coefficients -- Here we are merely solving the

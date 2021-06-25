@@ -7,8 +7,8 @@ email: Anahita.Hassanzadeh@gmail.com
 import numpy as np
 from scipy import linalg as LA
 import time
-from quad_Frob import quad_Frob
-from trust_sub import trust_sub
+from .quad_Frob import quad_Frob
+from .trust_sub import trust_sub
 
 class params:
     """
@@ -194,9 +194,9 @@ def dfo_tr(bb_func, x_initial, options=None):
 
     # print out the initial evaluation results
     if verbosity:
-        print ("\n Iteration Report \n")
-        print ('|it |suc|  objective  | TR_radius  |    rho    | |Y|  \n')
-        print ("| {} |---| {} | {} | --------- | {} \n".format(iteration,
+        print("\n Iteration Report \n")
+        print('|it |suc|  objective  | TR_radius  |    rho    | |Y|  \n')
+        print("| {} |---| {} | {} | --------- | {} \n".format(iteration,
                format(f, '0.6f'), format(delta, '0.6f'), nY))
 
     # Start the TR main loop
@@ -261,10 +261,10 @@ def dfo_tr(bb_func, x_initial, options=None):
 
         # print iteration report
         if verbosity:
-            print ("| {} | {} | {:.6f} | {} | {} | {} \n".format(iteration,
+            print("| {} | {} | {:.6f} | {} | {} | {} \n".format(iteration,
                         success, float(f), format(delta, '0.6f'),
                         format(rho[0][0], '0.6f'), nY))
-            print x.T, "\n"
+            print(x.T, "\n")
 
         # order the sample set according to the distance to the
         # current iterate.
@@ -314,12 +314,12 @@ def dfo_tr(bb_func, x_initial, options=None):
     end_time = time.time()
     if verbosity:
         # Final Report
-        print ('*****************REPORT************************\n')
-        print ("Total time is {} seconds.\n".format(end_time - start_time))
-        print ("Norm of the gradient of the model is {}.\n".format(normg))
-        print ('***************Final Report**************\n')
-        print ("|iter | #success| #fevals| final fvalue | final tr_radius|\n")
-        print ("| {} |    {}   |   {}   |   {}   |  {}  \n"
+        print('*****************REPORT************************\n')
+        print("Total time is {} seconds.\n".format(end_time - start_time))
+        print("Norm of the gradient of the model is {}.\n".format(normg))
+        print('***************Final Report**************\n')
+        print("|iter | #success| #fevals| final fvalue | final tr_radius|\n")
+        print("| {} |    {}   |   {}   |   {}   |  {}  \n"
                 .format(iteration, iter_suc, func_eval, f, delta))
     res = result(x, f, iteration, iter_suc, func_eval, delta)
     return res

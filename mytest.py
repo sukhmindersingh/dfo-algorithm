@@ -47,7 +47,7 @@ if __name__ == "__main__":
     # correct dimension
     nd_func_names = [sphere, rosen]  # functions from R^n -> R
     td_func_names = [ackley, booth, bukin, beale]   # functions from R^2 -> R
-    all_func_names = td_func_names + nd_func_names
+    all_func_names = [sphere]
 
     # Run all the algorithms and problems with given starting points
     # Specify the starting point and options. For example, try the following
@@ -56,31 +56,12 @@ if __name__ == "__main__":
         if func in td_func_names:
             x_0 = np.array([1.3, 0.7])
         else:
-            x_0 = np.array([1.3, 0.7, 0.8, 1.9, 1.2])
+            x_0 = np.array([1.3, 0.7, 8., 1.9, 1.2])
 
         print("\n\n********* Function " + func.__name__ + "********")
         alg = "DFO"
         options = {"maxfev": 100, "init_delta": 20,
                    "tol_delta": 1e-25, "tol_f": 1e-26, "tol_norm_g": 1e-5,
-                   "sample_gen": "auto", "verbosity": 0}
+                   "sample_gen": "auto", "verbosity": 1}
         get_results(func, x_0, alg, options)
 
-        alg = "Powell"
-        options = {"disp": True, "maxfev": 100, "ftol": 1e-26}
-        get_results(func, x_0, alg, options)
-
-        alg = "Nelder-Mead"
-        options = {"disp": True, "maxfev": 100, "ftol": 1e-26}
-        get_results(func, x_0, alg, options)
-
-        alg = 'COBYLA'
-        options = {"disp": True, "tol": 1e-25}
-        get_results(func, x_0, alg, options)
-
-        alg = 'BFGS'
-        options = {"maxiter": 8, "disp": True, "gtol": 1e-5}
-        get_results(func, x_0, alg, options)
-
-        alg = 'SLSQP'
-        options = {"maxiter": 20, "disp": True, "ftol": 1e-26}
-        get_results(func, x_0, alg, options)

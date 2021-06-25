@@ -50,6 +50,6 @@ def bb_optimize(func, x_0, alg, options=None):
     end = time.time()
 
     # print out the time and return the result object
-    print "Total time is {} seconds with " .format(end - start) + alg + (
-        " method.")
+    print("Total time is {} seconds with " .format(end - start) + alg + (
+        " method."))
     return res
